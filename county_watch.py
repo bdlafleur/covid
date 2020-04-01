@@ -37,7 +37,7 @@ def plot_time_series(filename, counties):
         dates = county.data['date']
         xaxis = \
             [datetime.datetime.strptime(d, "%Y-%m-%d").date() for d in dates]
-        ax[0].semilogy(xaxis, county.data['cases'], county.style,
+        ax[0].plot(xaxis, county.data['cases'], county.style,
                    label=county.county)
         ax[1].loglog(county.data['roll_cases'], county.data['roll_new_cases'],
                 county.style, label=county.county)
