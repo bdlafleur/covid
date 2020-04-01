@@ -1,3 +1,14 @@
-# Test markdown readme file
+# New York City
+![](Images/covid_ny.png)
 
-![Test](Images/covid_family.png)
+# Michigan
+![](Images/covid_michigan.png)
+
+# New York State
+![](Images/covid_newyork.png)
+
+# Georgia
+![](Images/covid_georgia.png)
+
+# Massachusetts
+![](Images/covid_mass.png)

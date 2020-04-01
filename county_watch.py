@@ -37,7 +37,7 @@ def plot_time_series(filename, counties):
         dates = county.data['date']
         xaxis = \
             [datetime.datetime.strptime(d, "%Y-%m-%d").date() for d in dates]
-        ax[0].plot(xaxis, county.data['cases'], county.style, 
+        ax[0].semilogy(xaxis, county.data['cases'], county.style,
                    label=county.county)
         ax[1].loglog(county.data['roll_cases'], county.data['roll_new_cases'],
                 county.style, label=county.county)
@@ -62,17 +62,22 @@ def main():
     wash = County('Washtenaw', 'Michigan', 'b-')
     wayne = County('Wayne', 'Michigan', 'b--')
     kzoo = County('Kalamazoo', 'Michigan', 'm-')
+    plot_time_series('Images/covid_michigan.png', [kent, wash, wayne])
+
     sch = County('Schenectady', 'New York', 'k-')
     alb = County('Albany', 'New York', 'k--')
+    plot_time_series('Images/covid_newyork.png', [sch, alb])
+
+    cath = County('Chatham', 'Georgia', 'g-')
+    plot_time_series('Images/covid_georgia.png', [cath])
+
     ess = County('Essex', 'Massachusetts', 'c-')
     bost = County('Suffolk', 'Massachusetts', 'c--')
-    cath = County('Chatham', 'Georgia', 'g-')
-    plot_time_series('covid_family.png', [kent, wash, wayne, sch, alb, ess,
-        bost, cath, kzoo])
+    plot_time_series('Images/covid_mass.png', [ess, bost])
 
     # Plot for New York.
     ny = County('New York City', 'New York', 'k')
-    plot_time_series('covid_ny.png', [ny])
+    plot_time_series('Images/covid_ny.png', [ny])
 
 
 if __name__ == '__main__':
