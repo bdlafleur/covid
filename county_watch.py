@@ -13,7 +13,7 @@ class County():
         self.style = style
 
         # Parse all data and trim for just this county
-        self.all_data = pd.read_csv('us-counties.csv')
+        self.all_data = pd.read_csv('covid-19-data/us-counties.csv')
         self.data = \
             self.all_data[(self.all_data['county']==county) & \
                           (self.all_data['state']==state)]
