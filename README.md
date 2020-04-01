@@ -1,3 +1,3 @@
-Test markdown readme file
+# Test markdown readme file
 
-![text txet] (covid_family.png "a title")
+![] (covid_family.png)
