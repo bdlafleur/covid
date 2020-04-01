@@ -1,3 +1,3 @@
 # Test markdown readme file
 
-![a] (Images/covid_family.png)
+![Test](Images/covid_family.png)
