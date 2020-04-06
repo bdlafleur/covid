@@ -104,6 +104,10 @@ def main():
     bost = County('Suffolk', 'Massachusetts', 'c--')
     plot_time_series('Images/covid_mass.png', [ess, bost])
 
+    dek = County('DeKalb', 'Illinois', 'c-')
+    chi = County('Cook', 'Illinois', 'c--')
+    plot_time_series('Images/covid_illinois.png', [dek, chi])
+
     # Plot for New York.
     ny = County('New York City', 'New York', 'k')
     plot_time_series('Images/covid_ny.png', [ny])

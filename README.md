@@ -12,3 +12,6 @@
 
 # Massachusetts
 ![](Images/covid_mass.png)
+
+# Illinois 
+![](Images/covid_illinois.png)
