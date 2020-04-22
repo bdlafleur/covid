@@ -20,8 +20,8 @@ class County():
         # Parse all data and trim for just this county
         self.all_data = pd.read_csv('covid-19-data/us-counties.csv')
         self.data = \
-            self.all_data[(self.all_data['county']==county) & \
-                          (self.all_data['state']==state)]
+            self.all_data[(self.all_data['county'] == county) &
+                          (self.all_data['state'] == state)]
         self.data['new_cases'] = self.data['cases'].diff()
 
         # Get rolling average columns.
@@ -42,14 +42,15 @@ class County():
                 slope_list.append(0)
 
         slope_list = np.array(slope_list)
-        slope_list[slope_list==0] = 100
+        slope_list[slope_list == 0] = 100
         self.data['doubling_rate'] = slope_list
+
 
 def plot_time_series(filename, counties):
 
     fig, ax = plt.subplots(figsize=(14, 5), nrows=1, ncols=3)
     date_fmt = mdates.DateFormatter('%Y-%m-%d')
-    locator= mdates.WeekdayLocator(byweekday=SU, interval=1)
+    locator = mdates.WeekdayLocator(byweekday=SU, interval=1)
 
     # Plot the time series data.
     for county in counties:
@@ -59,9 +60,9 @@ def plot_time_series(filename, counties):
         ax[0].plot(xaxis, county.data['cases'], county.style,
                    label=county.county)
         ax[1].loglog(county.data['roll_cases'], county.data['roll_new_cases'],
-                county.style, label=county.county)
+                     county.style, label=county.county)
         ax[2].plot(xaxis, county.data['doubling_rate'],
-                county.style, label=county.county)
+                   county.style, label=county.county)
 
     ax[0].set_xlabel('Date')
     ax[0].set_ylabel('Total Cases')
@@ -91,7 +92,7 @@ def main():
     wash = County('Washtenaw', 'Michigan', 'b-')
     wayne = County('Wayne', 'Michigan', 'b--')
     kzoo = County('Kalamazoo', 'Michigan', 'm-')
-    plot_time_series('Images/covid_michigan.png', [kent, wash, wayne])
+    plot_time_series('Images/covid_michigan.png', [kent, wash, wayne, kzoo])
 
     sch = County('Schenectady', 'New York', 'k-')
     alb = County('Albany', 'New York', 'k--')
